@@ -24,4 +24,13 @@ Route::get('/products/create', 'ProductController@create')->name('products.creat
 //route for taking the submition and storing the data in db
 Route::post('/products', 'ProductController@store')->name('products.store');
 
+
+
+Route::get('/products/{product}/edit', 'ProductController@edit')->name('products.edit');
+    
+Route::put('/products/{product}', 'ProductController@update')->name('products.update');
+
+Route::delete('/products/{product}', 'ProductController@destroy')->name('products.destroy');
+
+
 Route::get('/products/{product}', 'ProductController@show')->name('products.show');
