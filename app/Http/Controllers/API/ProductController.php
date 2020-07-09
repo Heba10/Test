@@ -21,4 +21,19 @@ class ProductController extends Controller
 
     }
 
+    public function show() {
+
+        $productId =request()->product;
+        $product =Product::find($productId);
+        return new ProductResource($product);
+      }
+  
+      
+      public function store(ProductRequest $request) {
+  
+        $product = Product::create($request->only(['title', 'description', 'price','user_id']));
+  
+        return new ProductResource($product);
+    }
+
 }
