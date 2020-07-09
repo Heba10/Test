@@ -3,7 +3,8 @@
 
 @section('content')
       <div class="container m-5">
-      
+      <div class="container m-5">
+      <a href="{{route('products.create')}}" class="btn btn-success mb-5">Create product</a>
           <table class="table">
               <thead>
                 <tr>
@@ -17,6 +18,7 @@
 
                   <th scope="col">category name</th>
                   <th scope="col">brand name</th>
+                  <th scope="col">Actions</th>
                  
                 </tr>
               </thead>
@@ -30,6 +32,7 @@
 
                   <td>{{ $product->price }}</td>
                   <td>{{ $product->created_at }}</td>
+                  <td><a href="{{route('products.show',['product' => $product->id])}}" class="btn btn-primary btn-sm">View Details</a></td>
 
          @endforeach
 
