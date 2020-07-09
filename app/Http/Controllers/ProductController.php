@@ -78,7 +78,10 @@ class ProductController extends Controller
     
         return view('products.edit', [
             'users' => $users,
-            'product' => $product
+            'categories' => $categories,
+            'brands' => $brands,
+            'product' => $product,
+         
         ]);
     }
     
@@ -87,8 +90,10 @@ class ProductController extends Controller
           //dd( $request)
         Product::where('id', $request->product)->update([
             'title' => $request->title,
-            'description' => $request->description,
-            'user_id' => $request->user_id
+             'price' => $request->price,
+             'description' =>  $request->description,
+             'category_id' =>  $request->category_id,
+             'brand_id' =>  $request->brand_id,
         ]);
     
         return redirect()->route('products.index');

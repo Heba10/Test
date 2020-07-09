@@ -36,6 +36,34 @@
                   <td>{{ $product->brand ? $product->brand->name : 'not exist'}}</td>
                   <td><a href="{{route('products.show',['product' => $product->id])}}" class="btn btn-primary btn-sm">View Details</a></td>
 
-         @endforeach
+                <td><a href="{{route('products.edit',['product' => $product->id])}}" class="btn btn-primary btn-sm">Edit</a></td>
+                <td><form id="Form" method="POST" action="{{route('products.destroy', ['product' => $product->id])}}" >
+            @csrf
+            {{method_field('DELETE')}}
+            <button type="button" onclick="deleteProduct({{$product->id}})" class="btn btn-danger btn-sm">Delete</button>
+         
+         
+          </form>
+          
+          <script>
+  function deleteProduct(id) {
+    var Form = document.querySelector(`#Form`);
+
+    var answer = confirm('are you want to delete this product.... ?');
+
+    if(answer) {
+      Form.submit();
+    }
+  }
+</script> </td>
+              @endforeach
+              </tbody>
+            </table>
+            
+      </div>
+
+{{ $products->links() }}
+
+         
 
 @endsection
