@@ -32,6 +32,8 @@
 
                   <td>{{ $product->price }}</td>
                   <td>{{ $product->created_at }}</td>
+                  <td>{{ $product->category ? $product->category->name : 'not exist'}}</td>
+                  <td>{{ $product->brand ? $product->brand->name : 'not exist'}}</td>
                   <td><a href="{{route('products.show',['product' => $product->id])}}" class="btn btn-primary btn-sm">View Details</a></td>
 
          @endforeach

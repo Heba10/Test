@@ -52,14 +52,15 @@ class ProductController extends Controller
         ]);
     }
 
-    public function store(PostRequest $request)
+    public function store()
     {
          //get the request data
          $request = request();
 
          //store the request data in the db
-         Post::create([
+         Product::create([
              'title' => $request->title,
+             'price' => $request->price,
              'description' =>  $request->description,
              'category_id' =>  $request->category_id,
              'brand_id' =>  $request->brand_id,
